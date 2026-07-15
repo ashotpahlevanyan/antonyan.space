@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+
+# artifact-preview derivative (body-only; not for GitHub Pages)
+cv-nerses-antonyan.html
