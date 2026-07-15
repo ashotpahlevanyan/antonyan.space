@@ -148,7 +148,11 @@
   .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
   .hero-cta .btn-ghost{background:transparent;border-color:var(--panel-line);color:var(--panel-ink)}
   .hero-cta .btn-ghost:hover{border-color:var(--panel-accent);color:var(--panel-accent)}
-  .hero-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:26px;font-family:var(--mono);font-size:12.5px;color:var(--panel-dim);letter-spacing:.02em}
+  .hero-focus{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px}
+  .hero-focus .fk{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--panel-dim)}
+  .hero-focus b{font-weight:600;font-size:13px;color:var(--panel-accent);background:var(--panel-accent-soft);
+    border:1px solid color-mix(in srgb,var(--panel-accent) 34%,transparent);border-radius:99px;padding:5px 13px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:24px;font-family:var(--mono);font-size:12.5px;color:var(--panel-dim);letter-spacing:.02em}
   .hero-meta span{display:inline-flex;align-items:center;gap:8px}
   .hero-meta svg{width:14px;height:14px;stroke:var(--panel-accent);fill:none;stroke-width:1.7}
 
@@ -163,8 +167,8 @@
     font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:#d6f5e6;background:rgba(9,20,15,.6);
     border:1px solid rgba(64,205,136,.4);border-radius:99px;padding:5px 11px;backdrop-filter:blur(4px)}
   .portrait .tagpill i{width:7px;height:7px;border-radius:50%;background:var(--panel-live)}
-  .term{position:absolute;right:-26px;bottom:-26px;width:265px;background:rgba(9,18,26,.92);
-    border:1px solid var(--panel-line);border-radius:13px;padding:13px 14px;backdrop-filter:blur(8px);
+  .term{position:relative;width:100%;margin-top:14px;background:rgba(9,18,26,.92);
+    border:1px solid var(--panel-line);border-radius:13px;padding:13px 15px;backdrop-filter:blur(8px);
     box-shadow:0 24px 50px -24px #000;font-family:var(--mono);font-size:11.5px;line-height:1.75}
   .term .bar{display:flex;gap:6px;margin-bottom:9px}
   .term .bar b{width:9px;height:9px;border-radius:50%;display:block}
@@ -178,8 +182,7 @@
   @media (prefers-reduced-motion:reduce){.term .cur::after{animation:none}}
   @media (max-width:940px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .hero-visual{max-width:420px}
-    .term{right:0;width:240px}
+    .hero-visual{max-width:360px;margin:0}
   }
 
   /* ---------------- PILLARS ---------------- */
@@ -242,6 +245,8 @@
   .proj-kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:4px 9px}
   .proj-stat{font-family:var(--mono);font-size:10.5px;color:var(--live);display:inline-flex;align-items:center;gap:6px}
   .proj-stat i{width:6px;height:6px;border-radius:50%;background:var(--live)}
+  .proj-stat.new{color:var(--accent-ink)}
+  .proj-stat.new i{background:var(--accent)}
   .proj h4{font-size:17px;font-weight:660;letter-spacing:-.01em;margin-bottom:9px}
   .proj p{margin:0 0 16px;font-size:14px;color:var(--muted);line-height:1.55}
   .proj .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
@@ -296,11 +301,13 @@
   .foot-in .ok{color:var(--panel-live)}
 
   @media print{
+    .js .reveal,.reveal{opacity:1!important;transform:none!important}
     .nav,.icon-btn,.hero-cta,.contact-cta,.term,.pf-flag{display:none}
     body{background:#fff;color:#000}
     .band-dark,.contact{background:#fff!important}
     .band-dark::before{display:none}
     .band-dark,.hero-sub,.hero-meta,.stat .c,.contact p,.contact-info a,.contact-info span,.foot-in{color:#1a1a1a!important}
+    .hero-sub b,.band-dark b,.contact p b{color:#000!important}
     .hero h1 .hl,.contact h2 .hl,.stat .n small,.hero .eyebrow,.contact .eyebrow{-webkit-text-fill-color:currentColor;color:#0a6a6a!important}
     .stat .n,.job h4,.feature h3{color:#000!important}
     .hero{padding:16px 0}
@@ -347,11 +354,12 @@
         <span class="eyebrow reveal">DevOps · Infrastructure · Yerevan, Armenia</span>
         <h1 class="reveal">Production infrastructure that <span class="hl">stays up</span> — automated, observable, secure.</h1>
         <p class="hero-sub reveal">I'm <b>Nerses Antonyan</b>, a DevOps engineer and system administrator. After <b>13 years keeping regulated banking systems accurate and online</b>, I now design, automate and operate production infrastructure across Linux and Windows — with monitoring, CI/CD and infrastructure-as-code built in from day one.</p>
+        <div class="hero-focus reveal"><span class="fk">Systems that are</span><b>Secure</b><b>Reliable</b><b>Observable</b></div>
         <div class="hero-cta reveal">
           <a class="btn btn-primary" href="mailto:nersessantonyan@gmail.com?subject=DevOps%20Engineer%20opportunity">
             <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Get in touch
           </a>
-          <a class="btn btn-ghost" href="files/Nerses%20CV.pdf" download>
+          <a class="btn btn-ghost" href="files/Nerses-Antonyan-CV.pdf" download>
             <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download CV
           </a>
           <a class="btn btn-ghost" href="#work">
@@ -392,23 +400,23 @@
     <div class="pillars">
       <div class="pillar reveal">
         <div class="pi"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Reliability first</h3>
-        <p>13+ years in banking, where downtime and inaccuracy aren't options — now baked into how infrastructure is designed and run.</p>
+        <h3>Secure by design</h3>
+        <p>Hardened servers, least-privilege access and hands-on penetration testing — finding weaknesses before attackers do.</p>
       </div>
       <div class="pillar reveal">
-        <div class="pi"><svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg></div>
-        <h3>Automation-first</h3>
-        <p>Terraform, Ansible and Bash turn manual, error-prone tasks into reproducible, version-controlled infrastructure.</p>
+        <div class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.3 12 2.4 2.4 5-5.2"/></svg></div>
+        <h3>Reliable by default</h3>
+        <p>13+ years in banking, where downtime and inaccuracy weren't options — now built into how every system runs.</p>
       </div>
       <div class="pillar reveal">
         <div class="pi"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
-        <h3>Observability by default</h3>
-        <p>Prometheus and Grafana wired in from the start, so incidents surface — and get resolved — before users ever notice.</p>
+        <h3>Fully observable</h3>
+        <p>Prometheus, Grafana and Zabbix wired in from the start, so incidents surface — and get resolved — before users notice.</p>
       </div>
       <div class="pillar reveal">
-        <div class="pi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></div>
-        <h3>Full-stack ops</h3>
-        <p>Servers, containers, networking, databases and CI/CD — one engineer who understands the whole path to production.</p>
+        <div class="pi"><svg viewBox="0 0 24 24"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg></div>
+        <h3>Automated end to end</h3>
+        <p>Terraform, Ansible and Bash turn manual, error-prone work into reproducible, version-controlled infrastructure.</p>
       </div>
     </div>
   </div>
@@ -437,7 +445,7 @@
       <div class="flag"><span>◆ Current focus</span><span class="badge-cur"><i></i>Current</span></div>
       <h3>DevOps Engineer &amp; Infrastructure Consultant</h3>
       <div class="titl">Independent · Remote</div>
-      <p class="fp">Designing, provisioning and operating production infrastructure for clients — Linux and Windows servers, containerized workloads, CI/CD pipelines and infrastructure-as-code, with monitoring and alerting in place from the first deploy.</p>
+      <p class="fp">Designing, provisioning and operating production infrastructure for clients — Linux and Windows servers, containerized workloads, CI/CD pipelines and infrastructure-as-code, with monitoring and alerting in place from the first deploy. Everything built to be <b>secure, reliable and observable</b> — now expanding into <b>penetration testing and security assessments</b>.</p>
       <div class="fmeta">
         <span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>May 2026 — Present</span>
         <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Remote</span>
@@ -478,6 +486,12 @@
     <p class="pf-flag reveal">// case-study links coming in a future update</p>
     <div class="work">
       <article class="proj reveal">
+        <div class="proj-top"><span class="proj-kind">Security</span><span class="proj-stat new"><i></i>new direction</span></div>
+        <h4>Penetration testing &amp; security assessment</h4>
+        <p>Authorized vulnerability assessments and penetration testing — probing infrastructure, servers and web applications, then hardening whatever's exposed.</p>
+        <div class="stack"><span>Pen testing</span><span>Vuln assessment</span><span>Hardening</span><span>Network security</span></div>
+      </article>
+      <article class="proj reveal">
         <div class="proj-top"><span class="proj-kind">CI / CD</span><span class="proj-stat"><i></i>live</span></div>
         <h4>Automated deployment pipeline</h4>
         <p>End-to-end build, test and release with zero-downtime rollouts and automatic rollback on failed health checks.</p>
@@ -507,12 +521,6 @@
         <p>Provisioning, SSH hardening, DNS/DHCP and least-privilege access for secure, maintainable server fleets.</p>
         <div class="stack"><span>Linux</span><span>SSH</span><span>DNS</span><span>Bash</span></div>
       </article>
-      <article class="proj reveal">
-        <div class="proj-top"><span class="proj-kind">Web</span><span class="proj-stat"><i></i>live</span></div>
-        <h4>High-availability web tier</h4>
-        <p>Reverse proxies, TLS and load balancing across NGINX, Apache and IIS for resilient, fast web delivery.</p>
-        <div class="stack"><span>NGINX</span><span>Apache</span><span>IIS</span><span>TLS</span></div>
-      </article>
     </div>
   </div>
 </section>
@@ -523,6 +531,8 @@
     <span class="eyebrow reveal">Core Competencies</span>
     <h2 class="s-title reveal">The full toolchain, hands-on.</h2>
     <div class="grid">
+      <div class="cell reveal"><h4><span class="k"></span>Security &amp; Penetration Testing</h4>
+        <div class="chips"><span class="chip">Penetration testing</span><span class="chip">Vulnerability assessment</span><span class="chip">Server hardening</span><span class="chip">Network security</span><span class="chip">Access control</span></div></div>
       <div class="cell reveal"><h4><span class="k"></span>Systems &amp; Administration</h4>
         <div class="chips"><span class="chip">Linux servers</span><span class="chip">Windows servers</span><span class="chip">SSH</span><span class="chip">DNS</span><span class="chip">DHCP</span><span class="chip">User privileges</span></div></div>
       <div class="cell reveal"><h4><span class="k"></span>Automation &amp; IaC</h4>
@@ -532,7 +542,7 @@
       <div class="cell reveal"><h4><span class="k"></span>Networking &amp; Web</h4>
         <div class="chips"><span class="chip">TCP/IP</span><span class="chip">OSI model</span><span class="chip">NGINX</span><span class="chip">Apache</span><span class="chip">IIS</span></div></div>
       <div class="cell reveal"><h4><span class="k"></span>Data &amp; Observability</h4>
-        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Prometheus</span><span class="chip">Grafana</span></div></div>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Zabbix</span></div></div>
       <div class="cell reveal"><h4><span class="k"></span>Financial &amp; Crypto Domain</h4>
         <div class="chips"><span class="chip">Banking operations</span><span class="chip">CBA reporting</span><span class="chip">Credit analysis</span><span class="chip">Treasury dealing</span><span class="chip">Crypto trading</span></div></div>
     </div>
@@ -568,7 +578,7 @@
       <a class="btn btn-ghost" href="tel:+37477545458">
         <svg viewBox="0 0 24 24"><path d="M4 5c0 8 7 15 15 15l0-3.5-4-1.5-2 2c-3-1.5-5.5-4-7-7l2-2L10 4 6.5 4 4 5Z"/></svg>+374 77 545 458
       </a>
-      <a class="btn btn-ghost" href="files/Nerses%20CV.pdf" download>
+      <a class="btn btn-ghost" href="files/Nerses-Antonyan-CV.pdf" download>
         <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Download CV
       </a>
     </div>
