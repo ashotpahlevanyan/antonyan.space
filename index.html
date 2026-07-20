@@ -512,47 +512,47 @@
       <article class="proj reveal">
         <div class="proj-top"><span class="proj-kind">Security</span><span class="proj-stat new"><i></i>new direction</span></div>
         <h4>Penetration testing &amp; security assessment</h4>
-        <p>Authorized vulnerability assessments and penetration testing — probing infrastructure, servers and web applications, then hardening whatever's exposed.</p>
-        <div class="stack"><span>Pen testing</span><span>Vuln assessment</span><span>Hardening</span><span>Network security</span></div>
+        <p>SYN/FIN/Xmas/NULL-сканирование, OS fingerprinting, обход UFW через conntrack INVALID, hping3, разведка инфраструктуры, hardening рекомендации.</p>
+        <div class="stack"><span>hping3</span><span>SYN/FIN scan</span><span>OSINT</span><span>Firewall bypass</span></div>
       </article>
       <a href="https://gitlab.com/devners/skillbox-service" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none">
       <article class="proj reveal">
         <div class="proj-top"><span class="proj-kind">CI / CD</span><span class="proj-stat"><i></i>live</span></div>
         <h4>Automated deployment pipeline</h4>
-        <p>End-to-end build, test and release with zero-downtime rollouts and automatic rollback on failed health checks.</p>
-        <div class="stack"><span>GitLab CI</span><span>Docker</span><span>Bash</span><span>NGINX</span></div>
+        <p>GitLab CI: test (go test) → build (Docker + GitLab Container Registry) → deploy (ssh + docker pull). Три стадии, zero-downtime, деплой в test и prod из одного пайплайна.</p>
+        <div class="stack"><span>GitLab CI</span><span>Docker</span><span>Go</span><span>Container Registry</span></div>
       </article>
       </a>
       <a href="https://gitlab.com/devners/vpn-infra" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none">
       <article class="proj reveal">
         <div class="proj-top"><span class="proj-kind">Observability</span><span class="proj-stat"><i></i>live</span></div>
         <h4>Monitoring &amp; alerting stack</h4>
-        <p>Metrics, dashboards and alert routing across a fleet of services — surfacing incidents before they reach users.</p>
-        <div class="stack"><span>Prometheus</span><span>Grafana</span><span>Alertmanager</span></div>
+        <p>Prometheus (node_exporter + textfile collector), Grafana (дашборды), Loki + Promtail (логи контейнеров и syslog), Alertmanager (8 алертов: CPU, RAM, диск, WireGuard, Nginx, SSH brute force).</p>
+        <div class="stack"><span>Prometheus</span><span>Grafana</span><span>Loki</span><span>Alertmanager</span></div>
       </article>
       </a>
       <a href="https://gitlab.com/devners/skillbox-infra" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none">
       <article class="proj reveal">
         <div class="proj-top"><span class="proj-kind">IaC</span><span class="proj-stat"><i></i>live</span></div>
         <h4>Infrastructure as code</h4>
-        <p>Reproducible environments provisioned declaratively, versioned in git and rolled out through peer review.</p>
-        <div class="stack"><span>Terraform</span><span>Ansible</span><span>Linux</span></div>
+        <p>Terraform: VPC, subnet, Cloud NAT, MIG, HTTP LB, два окружения (test/prod) с VPC peering. Ansible: 7 ролей (common, docker, firewall, wireguard, monitoring, nginx, totp). CI валидирует terraform + ansible-lint.</p>
+        <div class="stack"><span>Terraform</span><span>Ansible</span><span>GCP</span><span>VPC peering</span></div>
       </article>
       </a>
-      <a href="https://gitlab.com/devners/skillbox-service" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none">
+      <a href="https://gitlab.com/devners/zerotalk" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none">
       <article class="proj reveal">
-        <div class="proj-top"><span class="proj-kind">Platform</span><span class="proj-stat"><i></i>live</span></div>
-        <h4>Containerized workloads</h4>
-        <p>Orchestration for stateful and stateless services, with resource limits, secrets management and rolling updates.</p>
-        <div class="stack"><span>Kubernetes</span><span>Docker</span><span>PostgreSQL</span></div>
+        <div class="proj-top"><span class="proj-kind">App Security</span><span class="proj-stat"><i></i>live</span></div>
+        <h4>E2E encrypted messenger</h4>
+        <p>ZeroTalk: Go WebSocket-сервер с TLS 1.3, Ed25519 challenge-response, pre-key store (24h), file sharing (5min + secure overwrite). HTML-клиент вшит в бинарник, XSS-protection, rate limiter, 6 security headers.</p>
+        <div class="stack"><span>Go</span><span>WebSocket</span><span>Ed25519</span><span>TLS</span><span>XSS-protection</span></div>
       </article>
       </a>
-      <a href="https://gitlab.com/devners/vpn-infra" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none">
+      <a href="https://gitlab.com/devners/network-sentinel" target="_blank" rel="noopener" style="display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none">
       <article class="proj reveal">
-        <div class="proj-top"><span class="proj-kind">Reliability</span><span class="proj-stat"><i></i>live</span></div>
-        <h4>Hardened Linux servers</h4>
-        <p>Provisioning, SSH hardening, DNS/DHCP and least-privilege access for secure, maintainable server fleets.</p>
-        <div class="stack"><span>Linux</span><span>SSH</span><span>DNS</span><span>Bash</span></div>
+        <div class="proj-top"><span class="proj-kind">Network</span><span class="proj-stat"><i></i>live</span></div>
+        <h4>Network security &amp; IDS/IPS</h4>
+        <p>Многослойная защита: GCP firewall + UFW + iptables. Zeek IDS (протокольный анализ, JA3), Suricata IPS (30 000+ правил Emerging Threats), ntopng (визуализация), fail2ban (SSH), egress filtering с алертами.</p>
+        <div class="stack"><span>Zeek</span><span>Suricata</span><span>UFW</span><span>iptables</span><span>fail2ban</span></div>
       </article>
       </a>
     </div>
